@@ -3,92 +3,242 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Ekaterina Deliagina — Content Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#f9f9f8;--w:#fff;--ink:#111110;--mid:#555552;--soft:#999996;--ac:#c07a52;--sh:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.06);--sh2:0 2px 6px rgba(0,0,0,.08),0 12px 32px rgba(0,0,0,.1);--r:12px;--f:'Plus Jakarta Sans',sans-serif}
+:root{
+  --bg:#f5f2ed;
+  --w:#ffffff;
+  --ink:#1a1a1a;
+  --mid:#6b6b6b;
+  --soft:#a0a0a0;
+  --ac:#8a7d6b;
+  --border:rgba(0,0,0,.08);
+  --r:14px;
+  --f:'Outfit',sans-serif;
+}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--f);font-weight:400;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.tnav{position:sticky;top:0;z-index:100;padding:0 32px;display:flex;justify-content:space-between;align-items:center;height:56px;background:rgba(249,249,248,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06)}
-.tnav-name{font-size:14px;font-weight:600;text-decoration:none;color:var(--ink)}
-.tnav-links{display:flex;gap:28px}
-.tnav-links a{font-size:13px;color:var(--mid);text-decoration:none;transition:color .15s}
-.tnav-links a:hover{color:var(--ink)}
-.wrap{max-width:760px;margin:0 auto;padding:0 32px}
-.hero{padding:80px 0 56px}
-.hero-name{font-size:clamp(34px,6vw,58px);font-weight:600;letter-spacing:-1.5px;line-height:1.05;margin-bottom:14px}
-.hero-sub{font-size:17px;font-weight:300;color:var(--mid);max-width:520px;margin-bottom:32px}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-weight:400;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* ===  HEADER  === */
+.site-header{
+  padding:20px 48px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+}
+
+.site-name{
+  font-size:16px;
+  font-weight:600;
+  letter-spacing:-.3px;
+  color:var(--ink);
+  text-decoration:none;
+  line-height:1;
+}
+.site-nav{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:32px;
+}
+.site-nav a{
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--mid);
+  text-decoration:none;
+  border:none;
+  border-radius:0;
+  padding:0;
+  transition:color .2s;
+}
+.site-nav a:hover{background:transparent;color:var(--ink)}
+
+/* ===  LAYOUT  === */
+.wrap{max-width:1100px;margin:0 auto;padding:0 48px}
+
+/* ===  HERO  === */
+.hero{padding:100px 0 72px;border-bottom:1px solid var(--border)}
+.hero-label{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--ac);
+  margin-bottom:20px;
+}
+.hero-name{
+  font-size:clamp(52px,8vw,88px);
+  font-weight:700;
+  letter-spacing:-3px;
+  line-height:1.0;
+  color:var(--ink);
+  margin-bottom:32px;
+}
+.hero-sub{
+  font-size:16px;
+  font-weight:400;
+  color:var(--mid);
+  max-width:560px;
+  margin-bottom:36px;
+  line-height:1.75;
+}
 .pills{display:flex;gap:8px;flex-wrap:wrap}
-.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--w);border-radius:100px;font-size:13px;color:var(--mid);box-shadow:var(--sh)}
-.dot{width:5px;height:5px;border-radius:50%;background:var(--ac)}
-.sec{padding:52px 0}
-.sec-title{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--soft);margin-bottom:24px}
-.about-body{font-size:15.5px;font-weight:300;line-height:1.85;color:var(--mid);max-width:640px}
-.mk{background:rgba(255,210,80,.45);border-radius:3px;padding:1px 3px}
-.mk2{background:rgba(192,122,82,.2);border-radius:3px;padding:1px 3px}
-.mk3{background:rgba(120,185,140,.38);border-radius:3px;padding:1px 3px}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 14px;
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:3px;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--mid);
+}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--ac);flex-shrink:0}
+
+/* ===  SECTION  === */
+.sec{padding:60px 0}
+.sec-title{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--soft);
+  margin-bottom:32px;
+}
+.about-body{font-size:15.5px;font-weight:400;line-height:1.85;color:var(--mid);max-width:640px}
+.mk{background:rgba(138,125,107,.12);border-radius:2px;padding:1px 4px;color:var(--ink)}
+.mk2{background:rgba(138,125,107,.07);border-radius:2px;padding:1px 4px;color:var(--ink)}
+.mk3{background:rgba(138,125,107,.15);border-radius:2px;padding:1px 4px;color:var(--ink)}
+
+/* ===  PROJECT CARDS  === */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.card{background:var(--w);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:box-shadow .2s,transform .2s;text-decoration:none;color:inherit;display:block}
-.card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
+.card{
+  background:var(--w);
+  border-radius:var(--r);
+  overflow:hidden;
+  border:1px solid var(--border);
+  transition:border-color .2s,transform .2s;
+  text-decoration:none;
+  color:inherit;
+  display:block;
+}
+.card:hover{border-color:rgba(0,0,0,.18);transform:translateY(-2px)}
 .card.off{pointer-events:none}
 .card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
-.card-ph{width:100%;aspect-ratio:16/9;background:#f2f2f0;display:flex;align-items:center;justify-content:center}
-.card-ph span{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#ccc}
-.card-body{padding:18px 20px 20px}
-.card-tag{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ac);margin-bottom:6px}
-.card-ttl{font-size:16px;font-weight:600;letter-spacing:-.3px;line-height:1.3;margin-bottom:6px}
-.card-desc{font-size:13px;color:var(--soft);line-height:1.5}
-.card-meta{margin-top:14px;display:flex;justify-content:space-between}
-.card-yr{font-size:12px;color:#bbb}.card-arr{font-size:14px;color:var(--ac)}
-.jobs{display:flex;flex-direction:column;gap:12px}
-.jcard{background:var(--w);border-radius:var(--r);padding:24px 28px;box-shadow:var(--sh)}
+.card-ph{width:100%;aspect-ratio:16/9;background:#ece8e1;display:flex;align-items:center;justify-content:center}
+.card-ph span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#bbb}
+.card-body{padding:20px 22px 22px}
+.card-tag{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin-bottom:8px}
+.card-ttl{font-size:15px;font-weight:600;letter-spacing:-.2px;line-height:1.3;margin-bottom:6px}
+.card-desc{font-size:13px;color:var(--soft);line-height:1.6}
+.card-meta{margin-top:16px;display:flex;justify-content:space-between;align-items:center}
+.card-yr{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#c0b8ad}
+.card-arr{font-size:14px;color:var(--ac)}
+
+/* ===  EXPERIENCE  === */
+.jobs{display:flex;flex-direction:column;gap:0}
+.jcard{
+  background:var(--w);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:24px 28px;
+  margin-bottom:12px;
+}
 .jhead{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;gap:16px}
-.jco{font-size:16px;font-weight:600}.jper{font-size:12px;color:var(--soft);white-space:nowrap;padding-top:3px}
+.jco{font-size:16px;font-weight:600;letter-spacing:-.2px}
+.jper{font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--soft);white-space:nowrap;padding-top:4px}
 .jrow{display:flex;align-items:center;gap:8px;margin-bottom:14px}
-.jrole{font-size:13px;color:var(--ac);font-weight:500}.jloc{font-size:12px;color:#ccc}.jsep{font-size:11px;color:#ddd}
-.jdesc{font-size:13px;color:var(--soft);font-style:italic;margin-bottom:12px}
-.jul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.jul li{font-size:13.5px;line-height:1.65;color:var(--mid);padding-left:16px;position:relative}
-.jul li::before{content:"–";position:absolute;left:0;color:#ccc}
-.sub{margin-top:20px;padding-top:20px;border-top:1px solid #f0f0ee}
-.ccard{background:var(--w);border-radius:var(--r);padding:40px;box-shadow:var(--sh)}
-.chead{font-size:clamp(22px,3.5vw,30px);font-weight:600;letter-spacing:-1px;margin-bottom:10px}
-.csub{font-size:15px;color:var(--mid);font-weight:300;margin-bottom:28px}
+.jrole{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ac)}
+.jloc{font-size:12px;color:#c0b8ad}
+.jsep{font-size:11px;color:#ddd}
+.jdesc{font-size:13px;color:var(--mid);font-weight:400;margin-bottom:14px}
+.jul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.jul li{font-size:13.5px;line-height:1.7;color:var(--mid);padding-left:16px;position:relative}
+.jul li::before{content:"–";position:absolute;left:0;color:#d0cdc8}
+.sub{margin-top:24px;padding-top:24px;border-top:1px solid rgba(0,0,0,.07)}
+
+/* ===  CONTACT  === */
+.ccard{
+  background:var(--w);
+  border-radius:var(--r);
+  padding:48px;
+  border:1px solid var(--border);
+}
+.chead{
+  font-size:clamp(26px,3.5vw,36px);
+  font-weight:700;
+  letter-spacing:-1px;
+  margin-bottom:12px;
+  line-height:1.1;
+}
+.csub{font-size:15px;color:var(--mid);font-weight:400;margin-bottom:32px;line-height:1.7}
 .clinks{display:flex;gap:12px;flex-wrap:wrap}
-.cbtn{display:inline-flex;align-items:center;padding:11px 22px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;transition:all .15s}
-.cbtn-p{background:var(--ink);color:#fff}.cbtn-p:hover{background:#333}
-.cbtn-s{background:#f2f2f0;color:var(--ink)}.cbtn-s:hover{background:#e8e8e5}
-.foot{padding:36px 0;display:flex;justify-content:space-between;align-items:center}
-.foot-n{font-size:13px;color:#ccc}.foot-r{font-size:12px;color:#ccc}
-@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.rise{opacity:0;transform:translateY(10px)}.rise.vis{animation:rise .6s ease forwards}
-@media(max-width:640px){.wrap{padding:0 20px}.tnav{padding:0 20px}.grid{grid-template-columns:1fr}}
+.cbtn{
+  display:inline-flex;
+  align-items:center;
+  padding:11px 22px;
+  border-radius:3px;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:all .15s;
+}
+.cbtn-p{background:var(--ink);color:#fff}
+.cbtn-p:hover{background:#333}
+.cbtn-s{background:transparent;color:var(--ink);border:1px solid rgba(0,0,0,.15)}
+.cbtn-s:hover{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.25)}
+
+/* ===  FOOTER  === */
+.foot{padding:40px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+.foot-n{font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:#b5aea5}
+.foot-r{font-size:11px;letter-spacing:.5px;color:#b5aea5}
+
+/* ===  ANIMATION  === */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.rise{opacity:0;transform:translateY(14px)}
+.rise.vis{animation:rise .7s cubic-bezier(.22,1,.36,1) forwards}
+
+/* ===  RESPONSIVE  === */
+@media(max-width:640px){
+  .site-header{padding:16px 24px;}
+  .site-nav{gap:16px}
+  .wrap{padding:0 24px}
+  .grid{grid-template-columns:1fr}
+  .hero{padding:48px 0 40px}
+  .ccard{padding:28px 24px}
+}
 </style>
 </head>
 <body>
-<nav class="tnav">
-  <a class="tnav-name" href="index.html">Ekaterina Deliagina</a>
-  <div class="tnav-links">
-    <a href="#about">About me</a>
+<header class="site-header">
+  <a class="site-name" href="index.html">Ekaterina Deliagina</a>
+  <nav class="site-nav">
     <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
-  </div>
-</nav>
+  </nav>
+</header>
 <div class="wrap">
   <div class="hero rise">
-    <h1 class="hero-name">Ekaterina Deliagina</h1>
-    <p class="hero-sub">I make complex products feel simple — so users spend less time figuring things out and more time getting things done.</p>
+    <h1 class="hero-name">Ekaterina<br>Deliagina</h1>
+    <p class="hero-sub">I'm senior Content Designer with 8 years of experience crafting clear, user-focused content for high-traffic digital products.</p>
     <div class="pills">
       <span class="pill"><span class="dot"></span>Lisbon, Portugal</span>
       <span class="pill">Content Design</span>
       <span class="pill">UX Writing</span>
       <span class="pill">Localization</span>
     </div>
-  </div>
-  <div class="sec rise" id="about">
-    <div class="sec-title">About me</div>
-    <p class="about-body">Senior Content Designer with <span class="mk">8 years of experience</span> crafting clear, user-focused content for high-traffic digital products (up to 80M MAU). Built and led a <span class="mk2">content design team of 20 people</span> at a major fintech enterprise, establishing processes from scratch and driving measurable results — including a <span class="mk">10% increase in registrations</span> and doubled engagement on key app features. Skilled in <span class="mk3">localization management across 8+ languages</span>, cross-functional collaboration, and developing scalable content systems that enhance both product usability and brand consistency.</p>
   </div>
   <div class="sec rise" id="projects">
     <div class="sec-title">Projects</div>
