@@ -25,13 +25,65 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f);font-weight:400;
 .pcols{display:grid;grid-template-columns:1fr;gap:28px}
 .pcols p{font-size:14.5px;line-height:1.85;color:var(--mid);font-weight:300}
 .pwide p{font-size:14.5px;line-height:1.85;color:var(--mid);font-weight:300}
-.irow{display:flex;gap:24px;margin:44px 0;flex-wrap:nowrap;align-items:center;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-ms-overflow-style:none;scrollbar-width:none;padding: 40px calc(50vw - 95px);}
-.irow::-webkit-scrollbar{display:none;}
-.irow::-webkit-scrollbar{display:none;}
-.irow::-webkit-scrollbar{display:none;}
-.ifr{width:190px;background:linear-gradient(160deg,#2c2c2e,#1c1c1e);border-radius:46px;padding:11px 8px;box-shadow:0 0 0 1px rgba(255,255,255,.07) inset,0 28px 56px rgba(0,0,0,.28);position:relative;display:flex;flex-direction:column;align-items:center; flex-shrink:0;scroll-snap-align:center;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform:scale(0.8); opacity:0.5; cursor:pointer;} .ifr.active{transform:scale(1) translateY(-20px); opacity:1;} /* a bit down for the unactive ones, so active is scaled and translateY up */
-.ifr::before{content:'';position:absolute;left:-3px;top:82px;width:3px;height:28px;background:#2c2c2e;border-radius:2px 0 0 2px;box-shadow:0 40px 0 #2c2c2e,0 72px 0 #2c2c2e}
-.ifr::after{content:'';position:absolute;right:-3px;top:100px;width:3px;height:48px;background:#2c2c2e;border-radius:0 2px 2px 0}
+.irow {
+    display: flex;
+    gap: 48px;
+    margin: 44px 0;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 40px 0 40px max(32px, calc(50% - 165px));
+    scroll-padding-left: max(32px, calc(50% - 165px));
+}
+.irow::after {
+    content: '';
+    flex: 0 0 max(32px, calc(50% - 165px));
+}
+.ifr {
+    width: 330px;
+    background: linear-gradient(160deg,#2c2c2e,#1c1c1e);
+    border-radius: 46px;
+    padding: 11px 8px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.07) inset,0 28px 56px rgba(0,0,0,.28);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0.85);
+    opacity: 0.5;
+    cursor: pointer;
+    transform-origin: center center;
+}
+.ifr.active {
+    transform: scale(1) translateY(-20px);
+    opacity: 1;
+}
+.ifr::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: 82px;
+    width: 3px;
+    height: 28px;
+    background: #2c2c2e;
+    border-radius: 2px 0 0 2px;
+    box-shadow: 0 40px 0 #2c2c2e,0 72px 0 #2c2c2e;
+}
+.ifr::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 100px;
+    width: 3px;
+    height: 48px;
+    background: #2c2c2e;
+    border-radius: 0 2px 2px 0;
+}
 .isc{width:100%;border-radius:38px;overflow:hidden;aspect-ratio:9/19.5;position:relative;background:#000}
 .isc img{width:100%;height:100%;object-fit:cover;display:block}
 .isc-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a}
@@ -44,15 +96,56 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f);font-weight:400;
 .foot a{font-size:12px;color:#bbb;text-decoration:none}
 @keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .fi{animation:fi .5s ease forwards}
-@media(max-width:640px){.pwrap{padding:0 20px}.pnav{padding:0 20px}.pcols{grid-template-columns:1fr;gap:14px}.irow{display:flex;gap:24px;margin:44px 0;flex-wrap:nowrap;align-items:center;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-ms-overflow-style:none;scrollbar-width:none;padding: 40px calc(50vw - 95px);}
-.irow::-webkit-scrollbar{display:none;}
-.irow::-webkit-scrollbar{display:none;}
-.irow::-webkit-scrollbar{display:none;}.ifr{width:150px}}
-@keyframes bounce-x {
-  0%, 100% { transform: translateY(-50%) translateX(0); }
-  50% { transform: translateY(-50%) translateX(5px); }
+@media(max-width:640px){
+    .pwrap{padding:0 20px}.pnav{padding:0 20px}.pcols{grid-template-columns:1fr;gap:14px}
+    .ifr { width: 220px; }
 }
-.sc-arrow.hidden { opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+
+.sc-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.sc-arrow:hover { transform: translateY(-50%) scale(1.1); }
+.sc-arrow.left { left: 32px; }
+.sc-arrow.right { right: 32px; }
+.sc-arrow.hidden { opacity: 0; pointer-events: none; }
+.sc-arrow svg { width: 20px; height: 20px; stroke: #111; }
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.carousel-dot.active {
+    background: var(--ink);
+    transform: scale(1.2);
+}
+@media (prefers-color-scheme: dark) {
+    .carousel-dot { background: rgba(255,255,255,0.2); }
+    .carousel-dot.active { background: var(--w); }
+}
 </style>
 </head>
 <body>
@@ -92,9 +185,16 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f);font-weight:400;
     <div class="plab">Outcome</div>
 
 <div class="carousel-wrapper" style="position:relative;">
-    <div class="sc-arrow" style="position:absolute;right:32px;top:50%;transform:translateY(-50%);background:#fff;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.1);z-index:10;cursor:pointer;animation:bounce-x 2s infinite;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-    </div>
+  <div class="sc-arrow left hidden" id="scroll-left-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 18L9 12L15 6"/>
+    </svg>
+  </div>
+  <div class="sc-arrow right" id="scroll-right-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18l6-6-6-6"/>
+    </svg>
+  </div>
 <div class="irow">
     <div class="ifr">
         <div class="isc">
@@ -120,7 +220,10 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f);font-weight:400;
           
         </div>
       </div>
-  </div></div>
+    </div>
+  </div>
+  <div class="carousel-dots" id="carousel-dots"></div>
+</div>
 
 
     <div class="pcols">
@@ -145,45 +248,82 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f);font-weight:400;
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
-        const row = wrapper.querySelector('.irow');
-        const items = row.querySelectorAll('.ifr');
-        const arrow = wrapper.querySelector('.sc-arrow');
-        
-        if (items.length > 0) items[0].classList.add('active');
+  const row = document.querySelector('.irow');
+  const items = document.querySelectorAll('.ifr');
+  const leftBtn = document.getElementById('scroll-left-btn');
+  const rightBtn = document.getElementById('scroll-right-btn');
+  const dotsContainer = document.getElementById('carousel-dots');
 
-        row.addEventListener('scroll', () => {
-            if(arrow && !arrow.classList.contains('hidden') && Math.abs(row.scrollLeft) > 5) {
-                arrow.classList.add('hidden');
-            }
-        }, {passive: true});
-
-        if(arrow) {
-            arrow.addEventListener('click', () => {
-                arrow.classList.add('hidden');
-                row.scrollBy({left: 300, behavior: 'smooth'});
-            });
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    items.forEach(i => i.classList.remove('active'));
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            root: row,
-            threshold: 0.6
-        });
-
-        items.forEach(item => {
-            observer.observe(item);
-            item.addEventListener('click', () => {
-                item.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'center'});
-            });
-        });
+  // Create dots
+  items.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('carousel-dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+      centerItem(items[index]);
     });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.carousel-dot');
+
+  function updateActive() {
+    const rowRect = row.getBoundingClientRect();
+    const rowCenter = rowRect.left + rowRect.width / 2;
+
+    let closestItem = null;
+    let minDistance = Infinity;
+    let closestIndex = 0;
+
+    items.forEach((item, index) => {
+      const rect = item.getBoundingClientRect();
+      const itemCenter = rect.left + rect.width / 2;
+      const distance = Math.abs(rowCenter - itemCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestItem = item;
+        closestIndex = index;
+      }
+    });
+
+    items.forEach(item => item.classList.remove('active'));
+    if (closestItem) closestItem.classList.add('active');
+
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[closestIndex].classList.add('active');
+
+    // Arrow visibility
+    if (row.scrollLeft < 10) {
+      leftBtn.classList.add('hidden');
+    } else {
+      leftBtn.classList.remove('hidden');
+    }
+    
+    if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 10) {
+      rightBtn.classList.add('hidden');
+    } else {
+      rightBtn.classList.remove('hidden');
+    }
+  }
+
+  function centerItem(item) {
+    const rowRect = row.getBoundingClientRect();
+    const itemRect = item.getBoundingClientRect();
+    const scrollOffset = itemRect.left - rowRect.left - (rowRect.width / 2 - itemRect.width / 2);
+    row.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+  }
+
+  leftBtn.addEventListener('click', () => {
+    row.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+
+  rightBtn.addEventListener('click', () => {
+    row.scrollBy({ left: 300, behavior: 'smooth' });
+  });
+
+  row.addEventListener('scroll', updateActive);
+  window.addEventListener('resize', updateActive);
+  updateActive(); // Initial check
 });
 </script>
 
