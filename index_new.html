@@ -30,8 +30,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 .tnav-right{display:flex;align-items:center;gap:4px}
 .tnav-right a{font-size:13px;font-weight:500;color:var(--soft);text-decoration:none;padding:8px 16px;border-radius:100px;transition:all .2s}
 .tnav-right a:hover{color:var(--ink);background:rgba(26,22,40,.04)}
-.tnav-right a.tnav-cta{background:var(--grad);color:#fff;font-weight:600}
-.tnav-right a.tnav-cta:hover{opacity:0.9;box-shadow:0 4px 16px rgba(124,92,219,.2)}
+.tnav-right a.tnav-cta{background:var(--green);color:#fff;font-weight:600}
+.tnav-right a.tnav-cta:hover{background:var(--green2);box-shadow:0 4px 16px rgba(43,184,110,.2)}
 
 /* ─── WRAP ─── */
 .wrap{max-width:1080px;margin:0 auto;padding:0 48px}
@@ -41,12 +41,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(43,184,110,.06) 0%,rgba(29,160,212,.05) 30%,rgba(124,92,219,.05) 50%,transparent 70%);pointer-events:none}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:28px;background:linear-gradient(135deg,rgba(43,184,110,.08),rgba(124,92,219,.08));border:1px solid rgba(124,92,219,.12);border-radius:100px;padding:7px 20px;color:var(--violet)}
 .hero-tag .tdot{width:6px;height:6px;border-radius:50%;background:var(--cyan)}
-.hero-name{font-family:var(--display);font-size:clamp(40px,6.5vw,72px);font-weight:700;letter-spacing:-.04em;line-height:1;margin-bottom:28px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:0}
-.hero-name .h-hi{display:flex;align-items:center;gap:16px;color:var(--mid);-webkit-text-fill-color:var(--mid)}
-.hero-name .h-comma{color:var(--mid);-webkit-text-fill-color:var(--mid);margin-left:-4px}
-.hero-name .h-me{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sticker{width:clamp(80px,12vw,110px);height:auto;vertical-align:middle;margin-top:-8px}
-.hero-sub{font-size:18px;font-weight:400;color:var(--mid);max-width:700px;margin:12px auto 44px;line-height:1.7}
+.hero-name{font-family:var(--display);font-size:clamp(46px,7.5vw,82px);font-weight:700;letter-spacing:-.05em;line-height:1;margin-bottom:28px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:17px;font-weight:400;color:var(--mid);max-width:520px;margin:0 auto 44px;line-height:1.75}
 .hero-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .hpill{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;background:var(--surface);border:1px solid rgba(26,22,40,.08);border-radius:100px;font-size:13px;font-weight:500;color:var(--mid);transition:all .25s;box-shadow:0 1px 4px rgba(26,22,40,.03)}
 .hpill:hover{border-color:rgba(43,184,110,.25);color:var(--green);background:var(--green-dim)}
@@ -72,7 +68,6 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 .card{background:var(--surface);border:1px solid rgba(26,22,40,.06);border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit;display:block;transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .35s,box-shadow .35s;box-shadow:var(--sh)}
 .card:hover{transform:translateY(-4px);border-color:rgba(124,92,219,.18);box-shadow:var(--sh2)}
 .card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:filter .4s}
-.card-img.fit{object-fit:contain;padding:24px}
 .card-ph{width:100%;aspect-ratio:16/9;background:var(--bg2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .card-ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(43,184,110,.05),rgba(29,160,212,.04),rgba(124,92,219,.04),transparent 70%)}
 .card-ph span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);position:relative;z-index:1;font-weight:600}
@@ -109,7 +104,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 .csub{font-size:15px;color:var(--mid);font-weight:400;margin-bottom:36px;max-width:400px;margin-left:auto;margin-right:auto;position:relative}
 .clinks{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
 .cbtn{display:inline-flex;align-items:center;padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s;letter-spacing:-.01em}
-.cbtn-p{background:var(--grad);color:#fff}.cbtn-p:hover{opacity:0.9;box-shadow:0 8px 28px rgba(124,92,219,.22)}
+.cbtn-p{background:var(--green);color:#fff}.cbtn-p:hover{background:var(--green2);box-shadow:0 8px 28px rgba(43,184,110,.22)}
 .cbtn-s{background:var(--surface2);border:1px solid rgba(26,22,40,.08);color:var(--ink)}.cbtn-s:hover{border-color:rgba(26,22,40,.16);box-shadow:0 2px 8px rgba(26,22,40,.06)}
 
 /* ─── FOOTER ─── */
@@ -140,6 +135,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
     <div class="tnav-right">
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
+      <a href="#about">About</a>
       <a href="#contact" class="tnav-cta">Contact</a>
     </div>
   </div>
@@ -148,11 +144,9 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 <div class="wrap">
 
   <div class="hero rise">
-    <h1 class="hero-name">
-      <span class="h-hi">Hi <img src="sticker.png" class="hero-sticker" alt="sticker"><span class="h-comma">,</span></span>
-      <span class="h-me">I'm Ekaterina</span>
-    </h1>
-    <p class="hero-sub">I'm a Senior Content Designer with 8 years of experience crafting clear, <span style="white-space:nowrap">user-focused</span> content for high-traffic digital products</p>
+    <div class="hero-tag"><span class="tdot"></span>Content Designer</div>
+    <h1 class="hero-name">Ekaterina<br>Deliagina</h1>
+    <p class="hero-sub">I make complex products feel simple — so users spend less time figuring things out and more time getting things done.</p>
     <div class="hero-pills">
       <span class="hpill"><span class="pdot"></span>Lisbon, Portugal</span>
       <span class="hpill">Content Design</span>
@@ -167,8 +161,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
       <div class="sec-title">Projects</div>
     </div>
     <div class="grid">
-      <a href="project-1.html" class="card rise">
-        <div class="card-ph"><img src="project-1-cover.png" alt="Safety Level" class="card-img fit"></div>
+      <a class="card" href="project-1.html">
+        <div class="card-ph"><span>Doto · 2025</span></div>
         <div class="card-body">
           <div class="card-top"><span class="card-tag">Doto</span><span class="card-yr">2025</span></div>
           <div class="card-ttl">Safety Level</div>
@@ -177,7 +171,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
         </div>
       </a>
       <a class="card" href="project-2.html">
-        <img class="card-img" src="../project 2 cover.png" alt="Onboarding Widget">
+        <div class="card-ph"><span>Doto · 2025</span></div>
         <div class="card-body">
           <div class="card-top"><span class="card-tag">Doto</span><span class="card-yr">2025</span></div>
           <div class="card-ttl">Onboarding Widget</div>
@@ -186,7 +180,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
         </div>
       </a>
       <a class="card" href="project-3.html">
-        <img class="card-img" src="../project 3 cover.png" alt="Debit Account Redesign">
+        <div class="card-ph"><span>T-Bank · 2022</span></div>
         <div class="card-body">
           <div class="card-top"><span class="card-tag">T-Bank</span><span class="card-yr">2022</span></div>
           <div class="card-ttl">Debit Account Redesign</div>
@@ -195,7 +189,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
         </div>
       </a>
       <a class="card" href="project-4.html">
-        <img class="card-img" src="../project 4 cover.png" alt="Card Delivery Redesign">
+        <div class="card-ph"><span>T-Bank · 2021</span></div>
         <div class="card-body">
           <div class="card-top"><span class="card-tag">T-Bank</span><span class="card-yr">2021</span></div>
           <div class="card-ttl">Card Delivery Redesign</div>
@@ -203,6 +197,16 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
           <div class="card-arr">↗</div>
         </div>
       </a>
+    </div>
+  </div>
+
+  <div class="sec rise" id="about">
+    <div class="sec-head">
+      <div class="sec-label">Background</div>
+      <div class="sec-title">About me</div>
+    </div>
+    <div class="about-card">
+      <p class="about-body">Senior Content Designer with <span class="mk">8 years of experience</span> crafting clear, user-focused content for high-traffic digital products (up to 80M MAU). Built and led a <span class="mk2">content design team of 20 people</span> at a major fintech enterprise, establishing processes from scratch and driving measurable results — including a <span class="mk">10% increase in registrations</span> and doubled engagement on key app features. Skilled in <span class="mk3">localization management across 8+ languages</span>, cross-functional collaboration, and developing scalable content systems that enhance both product usability and brand consistency.</p>
     </div>
   </div>
 

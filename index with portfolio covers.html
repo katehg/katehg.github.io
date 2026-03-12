@@ -23,42 +23,33 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:400;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
 
-/* ─── NAV ─── */
 .tnav{position:sticky;top:0;z-index:100;padding:16px 48px}
 .tnav-inner{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:1080px;margin:0 auto;background:rgba(255,255,255,.8);border:1px solid rgba(26,22,40,.06);border-radius:100px;padding:8px 10px 8px 28px;backdrop-filter:blur(24px);box-shadow:0 2px 12px rgba(26,22,40,.04)}
 .tnav-name{font-family:var(--display);font-size:14px;font-weight:700;text-decoration:none;color:var(--ink);letter-spacing:-.02em}
 .tnav-right{display:flex;align-items:center;gap:4px}
 .tnav-right a{font-size:13px;font-weight:500;color:var(--soft);text-decoration:none;padding:8px 16px;border-radius:100px;transition:all .2s}
 .tnav-right a:hover{color:var(--ink);background:rgba(26,22,40,.04)}
-.tnav-right a.tnav-cta{background:var(--grad);color:#fff;font-weight:600}
-.tnav-right a.tnav-cta:hover{opacity:0.9;box-shadow:0 4px 16px rgba(124,92,219,.2)}
+.tnav-right a.tnav-cta{background:var(--green);color:#fff;font-weight:600}
+.tnav-right a.tnav-cta:hover{background:var(--green2);box-shadow:0 4px 16px rgba(43,184,110,.2)}
 
-/* ─── WRAP ─── */
 .wrap{max-width:1080px;margin:0 auto;padding:0 48px}
 
-/* ─── HERO ─── */
 .hero{padding:100px 0 80px;text-align:center;position:relative}
 .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(43,184,110,.06) 0%,rgba(29,160,212,.05) 30%,rgba(124,92,219,.05) 50%,transparent 70%);pointer-events:none}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:28px;background:linear-gradient(135deg,rgba(43,184,110,.08),rgba(124,92,219,.08));border:1px solid rgba(124,92,219,.12);border-radius:100px;padding:7px 20px;color:var(--violet)}
 .hero-tag .tdot{width:6px;height:6px;border-radius:50%;background:var(--cyan)}
-.hero-name{font-family:var(--display);font-size:clamp(40px,6.5vw,72px);font-weight:700;letter-spacing:-.04em;line-height:1;margin-bottom:28px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:0}
-.hero-name .h-hi{display:flex;align-items:center;gap:16px;color:var(--mid);-webkit-text-fill-color:var(--mid)}
-.hero-name .h-comma{color:var(--mid);-webkit-text-fill-color:var(--mid);margin-left:-4px}
-.hero-name .h-me{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sticker{width:clamp(80px,12vw,110px);height:auto;vertical-align:middle;margin-top:-8px}
-.hero-sub{font-size:18px;font-weight:400;color:var(--mid);max-width:700px;margin:12px auto 44px;line-height:1.7}
+.hero-name{font-family:var(--display);font-size:clamp(46px,7.5vw,82px);font-weight:700;letter-spacing:-.05em;line-height:1;margin-bottom:28px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:17px;font-weight:400;color:var(--mid);max-width:520px;margin:0 auto 44px;line-height:1.75}
 .hero-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .hpill{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;background:var(--surface);border:1px solid rgba(26,22,40,.08);border-radius:100px;font-size:13px;font-weight:500;color:var(--mid);transition:all .25s;box-shadow:0 1px 4px rgba(26,22,40,.03)}
 .hpill:hover{border-color:rgba(43,184,110,.25);color:var(--green);background:var(--green-dim)}
 .hpill .pdot{width:6px;height:6px;border-radius:50%;background:var(--green)}
 
-/* ─── SECTIONS ─── */
 .sec{padding:64px 0}
 .sec-head{text-align:center;margin-bottom:48px}
 .sec-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
 .sec-title{font-family:var(--display);font-size:clamp(26px,3.5vw,36px);font-weight:700;letter-spacing:-.03em;line-height:1.15;color:var(--ink)}
 
-/* ─── ABOUT ─── */
 .about-card{background:var(--surface);border:1px solid rgba(26,22,40,.06);border-radius:var(--r2);padding:48px;position:relative;overflow:hidden;box-shadow:var(--sh)}
 .about-card::before{content:'';position:absolute;top:-50px;right:-50px;width:250px;height:250px;background:radial-gradient(circle,rgba(124,92,219,.04),transparent 70%);pointer-events:none}
 .about-card::after{content:'';position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(43,184,110,.04),transparent 70%);pointer-events:none}
@@ -67,15 +58,56 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 .mk2{background:var(--violet-dim);border:1px solid rgba(124,92,219,.14);border-radius:6px;padding:2px 8px;color:var(--violet);font-weight:500}
 .mk3{background:var(--cyan-dim);border:1px solid rgba(29,160,212,.14);border-radius:6px;padding:2px 8px;color:var(--cyan);font-weight:500}
 
-/* ─── PROJECTS ─── */
+/* ─── PROJECT CARDS & COVERS ─── */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .card{background:var(--surface);border:1px solid rgba(26,22,40,.06);border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit;display:block;transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .35s,box-shadow .35s;box-shadow:var(--sh)}
 .card:hover{transform:translateY(-4px);border-color:rgba(124,92,219,.18);box-shadow:var(--sh2)}
-.card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:filter .4s}
-.card-img.fit{object-fit:contain;padding:24px}
-.card-ph{width:100%;aspect-ratio:16/9;background:var(--bg2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.card-ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(43,184,110,.05),rgba(29,160,212,.04),rgba(124,92,219,.04),transparent 70%)}
-.card-ph span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);position:relative;z-index:1;font-weight:600}
+
+/* Cover base */
+.card-cover{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.card-cover *{position:relative;z-index:2}
+
+
+
+
+/* Per-card gradients */
+.cov-1{background:linear-gradient(135deg,#d4f0e0,#d0eef4,#dce4f6)}
+.cov-2{background:linear-gradient(135deg,#e4ddf8,#daeaf6,#d4f0e8)}
+.cov-3{background:linear-gradient(135deg,#f4dce6,#e8dcf4,#dcdcf6)}
+.cov-4{background:linear-gradient(135deg,#f4e4d6,#f4dce6,#e6dcf2)}
+
+/* Phone mockup in cover */
+.cov-phone{position:absolute;z-index:1;background:rgba(255,255,255,.7);border:2px solid rgba(255,255,255,.9);border-radius:18px;box-shadow:0 8px 32px rgba(26,22,40,.1)}
+.cov-phone::before{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:32px;height:4px;background:rgba(26,22,40,.08);border-radius:4px}
+.cov-phone-inner{position:absolute;inset:8px 4px;border-radius:12px;overflow:hidden}
+
+/* Phone positions per card */
+.cov-1 .cov-phone{width:80px;height:164px;left:54%;top:50%;transform:translate(-50%,-50%)}
+.cov-1 .p2{width:70px;height:144px;left:36%;top:50%;transform:translate(-50%,-44%);opacity:.7}
+
+.cov-2 .cov-phone{width:72px;height:148px;left:58%;top:50%;transform:translate(-50%,-48%)}
+.cov-2 .p2{width:72px;height:148px;left:40%;top:50%;transform:translate(-50%,-52%);opacity:.6}
+.cov-2 .p3{width:72px;height:148px;left:22%;top:50%;transform:translate(-50%,-48%);opacity:.35}
+
+.cov-3 .cov-phone{width:200px;height:120px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:12px}
+.cov-3 .cov-phone::before{display:none}
+.cov-3 .cov-phone{background:rgba(255,255,255,.65)}
+.cov-3 .cov-phone-inner{border-radius:6px}
+
+.cov-4 .cov-phone{width:78px;height:160px;left:55%;top:50%;transform:translate(-50%,-48%)}
+.cov-4 .cov-trail{position:absolute;z-index:1;left:30%;top:30%;width:40px;height:40px;border:2px dashed rgba(26,22,40,.1);border-radius:50%}
+.cov-4 .cov-trail2{position:absolute;z-index:1;left:22%;top:22%;width:24px;height:24px;border:2px dashed rgba(26,22,40,.07);border-radius:50%}
+
+/* Screen contents (CSS-only UI mock) */
+.scr-bars{display:flex;flex-direction:column;gap:4px;padding:6px 4px}
+.scr-bar{height:3px;border-radius:2px;background:rgba(26,22,40,.1)}
+.scr-bar.w70{width:70%}.scr-bar.w50{width:50%}.scr-bar.w90{width:90%}.scr-bar.w60{width:60%}.scr-bar.w80{width:80%}.scr-bar.w40{width:40%}
+.scr-bar.green{background:rgba(43,184,110,.35)}
+.scr-bar.violet{background:rgba(124,92,219,.3)}
+.scr-circle{width:14px;height:14px;border-radius:50%;background:rgba(26,22,40,.06);margin:4px auto}
+.scr-block{height:8px;border-radius:3px;margin:3px 4px;background:rgba(26,22,40,.06)}
+.scr-hdr{height:10px;background:rgba(26,22,40,.04);margin-bottom:2px}
+
 .card-body{padding:22px 24px 24px}
 .card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .card-tag{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--violet)}
@@ -85,7 +117,6 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 .card-arr{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--surface2);border:1px solid rgba(26,22,40,.08);margin-top:14px;margin-left:auto;transition:all .3s;font-size:13px;color:var(--violet)}
 .card:hover .card-arr{background:var(--violet);color:#fff;border-color:var(--violet);transform:translate(2px,-2px)}
 
-/* ─── EXPERIENCE ─── */
 .jobs{display:flex;flex-direction:column;gap:12px}
 .jcard{background:var(--surface);border:1px solid rgba(26,22,40,.06);border-radius:var(--r);padding:28px 32px;box-shadow:var(--sh);transition:border-color .25s,box-shadow .25s}
 .jcard:hover{border-color:rgba(26,22,40,.1);box-shadow:var(--sh2)}
@@ -102,21 +133,18 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 .jul li::before{content:"";position:absolute;left:3px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--dim)}
 .sub{margin-top:24px;padding-top:24px;border-top:1px solid rgba(26,22,40,.06)}
 
-/* ─── CONTACT ─── */
 .ccard{background:var(--surface);border:1px solid rgba(26,22,40,.06);border-radius:var(--r2);padding:56px;text-align:center;position:relative;overflow:hidden;box-shadow:var(--sh)}
 .ccard::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:350px;background:radial-gradient(ellipse,rgba(43,184,110,.05),rgba(29,160,212,.04),rgba(124,92,219,.04),transparent 70%);pointer-events:none}
 .chead{font-family:var(--display);font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.03em;margin-bottom:14px;position:relative;color:var(--ink)}
 .csub{font-size:15px;color:var(--mid);font-weight:400;margin-bottom:36px;max-width:400px;margin-left:auto;margin-right:auto;position:relative}
 .clinks{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
 .cbtn{display:inline-flex;align-items:center;padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s;letter-spacing:-.01em}
-.cbtn-p{background:var(--grad);color:#fff}.cbtn-p:hover{opacity:0.9;box-shadow:0 8px 28px rgba(124,92,219,.22)}
+.cbtn-p{background:var(--green);color:#fff}.cbtn-p:hover{background:var(--green2);box-shadow:0 8px 28px rgba(43,184,110,.22)}
 .cbtn-s{background:var(--surface2);border:1px solid rgba(26,22,40,.08);color:var(--ink)}.cbtn-s:hover{border-color:rgba(26,22,40,.16);box-shadow:0 2px 8px rgba(26,22,40,.06)}
 
-/* ─── FOOTER ─── */
 .foot{padding:40px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(26,22,40,.06)}
 .foot-n{font-size:12px;color:var(--dim);font-weight:500}.foot-r{font-size:12px;color:var(--dim)}
 
-/* ─── ANIMATIONS ─── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .rise{opacity:0;transform:translateY(24px)}.rise.vis{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) forwards}
 
@@ -129,6 +157,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
   .about-card{padding:32px 24px}
   .ccard{padding:40px 24px}
   .jcard{padding:24px 20px}
+  .cov-phone,.cov-trail,.cov-trail2{transform:scale(.85)!important}
 }
 </style>
 </head>
@@ -140,6 +169,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
     <div class="tnav-right">
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
+      <a href="#about">About</a>
       <a href="#contact" class="tnav-cta">Contact</a>
     </div>
   </div>
@@ -148,11 +178,9 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 <div class="wrap">
 
   <div class="hero rise">
-    <h1 class="hero-name">
-      <span class="h-hi">Hi <img src="sticker.png" class="hero-sticker" alt="sticker"><span class="h-comma">,</span></span>
-      <span class="h-me">I'm Ekaterina</span>
-    </h1>
-    <p class="hero-sub">I'm a Senior Content Designer with 8 years of experience crafting clear, <span style="white-space:nowrap">user-focused</span> content for high-traffic digital products</p>
+    <div class="hero-tag"><span class="tdot"></span>Content Designer</div>
+    <h1 class="hero-name">Ekaterina<br>Deliagina</h1>
+    <p class="hero-sub">I make complex products feel simple — so users spend less time figuring things out and more time getting things done.</p>
     <div class="hero-pills">
       <span class="hpill"><span class="pdot"></span>Lisbon, Portugal</span>
       <span class="hpill">Content Design</span>
@@ -167,8 +195,35 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
       <div class="sec-title">Projects</div>
     </div>
     <div class="grid">
-      <a href="project-1.html" class="card rise">
-        <div class="card-ph"><img src="project-1-cover.png" alt="Safety Level" class="card-img fit"></div>
+
+      <!-- Safety Level: gradient + title + two phone mockups with shield gauge UI -->
+      <a class="card" href="project-1.html">
+        <div class="card-cover cov-1">
+          <div class="cov-phone p2">
+            <div class="cov-phone-inner">
+              <div class="scr-hdr"></div>
+              <div class="scr-circle" style="background:rgba(43,184,110,.2);width:20px;height:20px;margin-top:10px"></div>
+              <div class="scr-bars">
+                <div class="scr-bar w90 green"></div>
+                <div class="scr-bar w60"></div>
+                <div class="scr-bar w80"></div>
+              </div>
+            </div>
+          </div>
+          <div class="cov-phone">
+            <div class="cov-phone-inner">
+              <div class="scr-hdr"></div>
+              <div class="scr-circle" style="background:rgba(43,184,110,.25);width:24px;height:24px;margin-top:8px"></div>
+              <div style="text-align:center;font-size:5px;color:rgba(26,22,40,.35);font-weight:700;margin:2px 0">SAFE</div>
+              <div class="scr-bars">
+                <div class="scr-bar w90 green"></div>
+                <div class="scr-bar w70"></div>
+                <div class="scr-bar w50"></div>
+                <div class="scr-bar w80"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="card-body">
           <div class="card-top"><span class="card-tag">Doto</span><span class="card-yr">2025</span></div>
           <div class="card-ttl">Safety Level</div>
@@ -176,8 +231,41 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
           <div class="card-arr">↗</div>
         </div>
       </a>
+
+      <!-- Onboarding Widget: gradient + title + three stacked phone steps -->
       <a class="card" href="project-2.html">
-        <img class="card-img" src="../project 2 cover.png" alt="Onboarding Widget">
+        <div class="card-cover cov-2">
+          <div class="cov-phone p3">
+            <div class="cov-phone-inner">
+              <div class="scr-hdr"></div>
+              <div class="scr-block"></div>
+              <div class="scr-block" style="width:60%"></div>
+            </div>
+          </div>
+          <div class="cov-phone p2">
+            <div class="cov-phone-inner">
+              <div class="scr-hdr"></div>
+              <div class="scr-circle"></div>
+              <div class="scr-bars">
+                <div class="scr-bar w80 violet"></div>
+                <div class="scr-bar w60"></div>
+              </div>
+              <div class="scr-block" style="background:rgba(124,92,219,.15)"></div>
+            </div>
+          </div>
+          <div class="cov-phone">
+            <div class="cov-phone-inner">
+              <div class="scr-hdr"></div>
+              <div class="scr-circle" style="background:rgba(43,184,110,.2)"></div>
+              <div style="text-align:center;font-size:4px;color:rgba(26,22,40,.35);font-weight:700;margin:1px 0">✓ DONE</div>
+              <div class="scr-bars">
+                <div class="scr-bar w90 violet"></div>
+                <div class="scr-bar w70 violet"></div>
+                <div class="scr-bar w80"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="card-body">
           <div class="card-top"><span class="card-tag">Doto</span><span class="card-yr">2025</span></div>
           <div class="card-ttl">Onboarding Widget</div>
@@ -185,8 +273,29 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
           <div class="card-arr">↗</div>
         </div>
       </a>
+
+      <!-- Debit Account: gradient + title + landscape app screen -->
       <a class="card" href="project-3.html">
-        <img class="card-img" src="../project 3 cover.png" alt="Debit Account Redesign">
+        <div class="card-cover cov-3">
+          <div class="cov-phone" style="border-radius:12px">
+            <div class="cov-phone-inner" style="border-radius:8px">
+              <div class="scr-hdr" style="height:14px"></div>
+              <div style="display:flex;gap:3px;padding:3px 4px">
+                <div style="flex:1;height:22px;border-radius:4px;background:rgba(26,22,40,.06)"></div>
+                <div style="flex:2;display:flex;flex-direction:column;gap:2px">
+                  <div class="scr-bar w90" style="height:4px"></div>
+                  <div class="scr-bar w60" style="height:4px"></div>
+                  <div class="scr-bar w80 violet" style="height:4px"></div>
+                </div>
+              </div>
+              <div style="display:flex;gap:2px;padding:2px 4px">
+                <div style="flex:1;height:10px;border-radius:3px;background:rgba(26,22,40,.05)"></div>
+                <div style="flex:1;height:10px;border-radius:3px;background:rgba(26,22,40,.05)"></div>
+                <div style="flex:1;height:10px;border-radius:3px;background:rgba(26,22,40,.05)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="card-body">
           <div class="card-top"><span class="card-tag">T-Bank</span><span class="card-yr">2022</span></div>
           <div class="card-ttl">Debit Account Redesign</div>
@@ -194,8 +303,30 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
           <div class="card-arr">↗</div>
         </div>
       </a>
+
+      <!-- Card Delivery: gradient + title + phone with progress trail -->
       <a class="card" href="project-4.html">
-        <img class="card-img" src="../project 4 cover.png" alt="Card Delivery Redesign">
+        <div class="card-cover cov-4">
+          <div class="cov-trail"></div>
+          <div class="cov-trail2"></div>
+          <div class="cov-phone">
+            <div class="cov-phone-inner">
+              <div class="scr-hdr"></div>
+              <div style="margin:8px auto;width:26px;height:16px;border-radius:4px;background:rgba(26,22,40,.08);border:1px solid rgba(26,22,40,.08)"></div>
+              <div class="scr-bars">
+                <div class="scr-bar w90"></div>
+                <div class="scr-bar w70"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding:4px 6px;margin-top:4px">
+                <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5)"></div>
+                <div style="flex:1;height:1px;background:rgba(26,22,40,.12);margin:3px 2px"></div>
+                <div style="width:6px;height:6px;border-radius:50%;background:rgba(26,22,40,.08)"></div>
+                <div style="flex:1;height:1px;background:rgba(26,22,40,.12);margin:3px 2px"></div>
+                <div style="width:6px;height:6px;border-radius:50%;border:1px solid rgba(26,22,40,.1)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="card-body">
           <div class="card-top"><span class="card-tag">T-Bank</span><span class="card-yr">2021</span></div>
           <div class="card-ttl">Card Delivery Redesign</div>
@@ -203,6 +334,17 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
           <div class="card-arr">↗</div>
         </div>
       </a>
+
+    </div>
+  </div>
+
+  <div class="sec rise" id="about">
+    <div class="sec-head">
+      <div class="sec-label">Background</div>
+      <div class="sec-title">About me</div>
+    </div>
+    <div class="about-card">
+      <p class="about-body">Senior Content Designer with <span class="mk">8 years of experience</span> crafting clear, user-focused content for high-traffic digital products (up to 80M MAU). Built and led a <span class="mk2">content design team of 20 people</span> at a major fintech enterprise, establishing processes from scratch and driving measurable results — including a <span class="mk">10% increase in registrations</span> and doubled engagement on key app features. Skilled in <span class="mk3">localization management across 8+ languages</span>, cross-functional collaboration, and developing scalable content systems that enhance both product usability and brand consistency.</p>
     </div>
   </div>
 
