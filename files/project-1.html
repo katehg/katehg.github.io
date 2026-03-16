@@ -9,11 +9,8 @@
 :root{
   --bg:#f8f7fc;--bg2:#f0eef6;--surface:#fff;--surface2:#f4f2fa;--surface3:#eae7f3;
   --ink:#1a1628;--mid:#5a5470;--soft:#8a84a0;--dim:#c8c3d8;
-  --g1:#2bb86e;--g2:#1da0d4;--g3:#7c5cdb;
-  --green:#2bb86e;--green2:#24a660;--green-dim:rgba(43,184,110,.06);
-  --violet:#7c5cdb;--violet2:#6b4bc8;--violet-dim:rgba(124,92,219,.06);
-  --cyan:#1da0d4;--cyan-dim:rgba(29,160,212,.06);
-  --grad:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));
+  --blue:#0d6efd;--blue-dark:#0b5ed7;--blue-dim:rgba(13,110,253,.06);
+  --grad:linear-gradient(135deg,#3d8bfd,#0d6efd,#0950c0);
   --sh:0 1px 3px rgba(26,22,40,.04),0 6px 24px rgba(26,22,40,.06);
   --sh2:0 2px 8px rgba(26,22,40,.06),0 16px 40px rgba(26,22,40,.08);
   --r:20px;--r2:28px;
@@ -33,7 +30,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 
 .pwrap{max-width:760px;margin:0 auto;padding:0 32px}
 .phero{padding:60px 0 40px}
-.ptag{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--violet);margin-bottom:12px}
+.ptag{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
 .pttl{font-family:var(--display);font-size:clamp(32px,6vw,56px);font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:40px;color:var(--ink)}
 .pcov{border-radius:var(--r2);overflow:hidden;margin-bottom:60px;box-shadow:var(--sh2);background:var(--surface2);display:flex;align-items:center;justify-content:center;max-width:696px;margin-left:auto;margin-right:auto;border:1px solid rgba(26,22,40,.06)}
 .pcov img{width:100%;display:block}
@@ -59,7 +56,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 .foot{padding:48px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(26,22,40,.06);margin-top:40px}
 .foot-n{font-size:12px;color:var(--dim);font-weight:500}
 .foot a{font-size:12px;color:var(--dim);text-decoration:none;transition:color .2s}
-.foot a:hover{color:var(--violet)}
+.foot a:hover{color:var(--blue)}
 @keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .fi{animation:fi .5s ease forwards}
 @media(max-width:640px){.pwrap{padding:0 20px}.pnav{padding:0 20px}.pcols{grid-template-columns:1fr;gap:14px}
@@ -187,12 +184,12 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
     transition: all 0.3s ease;
 }
 .carousel-dot.active {
-    background: var(--violet);
+    background: var(--blue);
     transform: scale(1.4);
 }
 @media (prefers-color-scheme: dark) {
     .carousel-dot { background: rgba(255,255,255,0.2); }
-    .carousel-dot.active { background: var(--violet); }
+    .carousel-dot.active { background: var(--blue); }
 }
 </style>
 
