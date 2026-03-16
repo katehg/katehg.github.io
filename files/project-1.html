@@ -25,7 +25,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 
 /* ─── NAV ─── */
 .pnav{position:sticky;top:0;z-index:100;padding:16px 32px}
-.pnav-inner{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:760px;margin:0 auto;background:rgba(255,255,255,.8);border:1px solid rgba(26,22,40,.06);border-radius:100px;padding:8px 10px 8px 20px;backdrop-filter:blur(24px);box-shadow:0 2px 12px rgba(26,22,40,.04)}
+.pnav-inner{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:760px;margin:0 auto;background:rgba(255,255,255,.8);border:1px solid rgba(26,22,40,.06);border-radius:100px;padding:8px 16px 8px 20px;backdrop-filter:blur(24px);box-shadow:0 2px 12px rgba(26,22,40,.04)}
 .back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--soft);text-decoration:none;transition:all .2s;padding:8px 16px;border-radius:100px}
 .back:hover{color:var(--ink);background:rgba(26,22,40,.04)}
 .back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
@@ -171,24 +171,28 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    z-index: 10;
 }
 .carousel-dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: rgba(0,0,0,0.1);
+    background: rgba(26,22,40,0.1);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 .carousel-dot.active {
-    background: var(--ink);
-    transform: scale(1.2);
+    background: var(--violet);
+    transform: scale(1.4);
 }
 @media (prefers-color-scheme: dark) {
     .carousel-dot { background: rgba(255,255,255,0.2); }
-    .carousel-dot.active { background: var(--w); }
+    .carousel-dot.active { background: var(--violet); }
 }
 </style>
 
@@ -237,15 +241,15 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
     
 
 
-<div class="carousel-wrapper" style="position:relative; max-width: 548px; margin: 0 auto;">
+<div class="carousel-wrapper" style="position:relative; max-width: 548px; margin: 16px auto 32px;">
     <div class="sc-arrow hidden" id="scroll-left-btn" style="left: -24px; right: auto;">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
     </div>
     <div class="sc-arrow" id="scroll-right-btn">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
     </div>
-    <div class="carousel-viewport" style="width: 100%; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);">
-        <div class="irow fi" style="margin-top: 44px; margin-bottom: 0;">
+    <div class="carousel-viewport" style="width: 100%; position: relative; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);">
+        <div class="irow fi" style="margin-top: 0; margin-bottom: 0;">
     <div class="ifr"><div class="isc"><img src="../project 1 images/Untitled.png"/></div></div>
     <div class="ifr"><div class="isc"><img src="../project 1 images/Untitled1.png"/></div></div>
     <div class="ifr"><div class="isc"><img src="../project 1 images/Untitled3.png"/></div></div>
@@ -319,13 +323,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
-        let dotsContainer = wrapper.querySelector('.carousel-dots');
+        const viewport = wrapper.querySelector('.carousel-viewport');
+        let dotsContainer = viewport.querySelector('.carousel-dots');
         if (!dotsContainer) {
             dotsContainer = document.createElement('div');
-            dotsContainer.className = 'carousel-dots';
-            wrapper.appendChild(dotsContainer);
+            dotsContainer.className = 'carousel-dots fi';
+            viewport.appendChild(dotsContainer);
         } else {
-            dotsContainer.innerHTML = ''; // clear if existing
+            dotsContainer.innerHTML = '';
         }
 
 
