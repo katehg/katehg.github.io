@@ -35,7 +35,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 .phero{padding:60px 0 40px}
 .ptag{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--violet);margin-bottom:12px}
 .pttl{font-family:var(--display);font-size:clamp(32px,6vw,56px);font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:40px;color:var(--ink)}
-.pcov{border-radius:var(--r2);overflow:hidden;margin-bottom:60px;box-shadow:var(--sh2);background:var(--surface2);display:flex;align-items:center;justify-content:center;max-width:580px;margin-left:auto;margin-right:auto;border:1px solid rgba(26,22,40,.06)}
+.pcov{border-radius:var(--r2);overflow:hidden;margin-bottom:60px;box-shadow:var(--sh2);background:var(--surface2);display:flex;align-items:center;justify-content:center;max-width:696px;margin-left:auto;margin-right:auto;border:1px solid rgba(26,22,40,.06)}
 .pcov img{width:100%;display:block}
 .psec{margin-bottom:56px}
 .plab{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);margin-bottom:16px}
@@ -98,12 +98,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
     scroll-behavior: smooth;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    padding: 40px 0 40px max(32px, calc(50% - 165px));
-    scroll-padding-left: max(32px, calc(50% - 165px));
-}
-.irow::after {
-    content: '';
-    flex: 0 0 max(32px, calc(50% - 165px));
+    padding: 40px max(32px, calc(50% - 165px));
+    scroll-padding: 0 max(32px, calc(50% - 165px));
 }
 .ifr {
     width: 330px;
@@ -152,24 +148,40 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
     .ifr { width: 220px; }
 }
 
+.carousel-viewport {
+    background: #f5f5f7;
+    position: relative;
+    border-radius: 24px;
+    margin: 0;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
 .carousel-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    z-index: 10;
+    margin: 0;
 }
 .carousel-dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: rgba(0,0,0,0.1);
+    background: rgba(124, 92, 219, 0.2);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 .carousel-dot.active {
-    background: var(--ink);
-    transform: scale(1.2);
+    background: var(--violet);
+    transform: scale(1.4);
+}
+@media (prefers-color-scheme: dark) {
+    .carousel-dot { background: rgba(124, 92, 219, 0.3); }
 }
 </style>
 </head>
@@ -185,7 +197,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
   <div class="phero rise">
     <div class="ptag">T-Bank · 2021</div>
     <h1 class="pttl">Card Delivery Redesign</h1>
-    <div class="pcov"><img src="project-4-cover.png" alt="Card Delivery Redesign cover"/></div>
+    <div class="pcov"><img src="project-4-cover.png" alt="Card Delivery Redesign"></div>
   </div>
 
   <div class="psec fi">
@@ -206,15 +218,15 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
   <div class="psec fi">
     <div class="plab">Process & Designs</div>
     
-    <div class="carousel-wrapper" style="position:relative; max-width: 548px; margin: 0 auto;">
-        <div class="sc-arrow hidden" id="scroll-left-btn" style="left: -24px; right: auto;">
+    <div class="carousel-wrapper" style="position:relative; margin-bottom: 32px;">
+        <div class="sc-arrow left hidden" id="scroll-left-btn" style="left: -24px; right: auto;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
         </div>
-        <div class="sc-arrow" id="scroll-right-btn">
+        <div class="sc-arrow right" id="scroll-right-btn">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
         </div>
-        <div class="carousel-viewport" style="width: 100%; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);">
-            <div class="irow fi" style="margin-top: 44px; margin-bottom: 0;">
+        <div class="carousel-viewport">
+            <div class="irow fi" style="margin: 0; padding-bottom: 40px;">
                 <div class="ifr"><div class="isc"><img src="../project 4 images/Назначение встречи.png"/></div></div>
                 <div class="ifr"><div class="isc"><img src="../project 4 images/Доставка карты.png"/></div></div>
                 <div class="ifr"><div class="isc"><img src="../project 4 images/Текущая геопозиция.png"/></div></div>
@@ -302,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!dotsContainer) {
             dotsContainer = document.createElement('div');
             dotsContainer.className = 'carousel-dots';
-            wrapper.appendChild(dotsContainer);
+            wrapper.querySelector('.carousel-viewport').appendChild(dotsContainer);
         } else {
             dotsContainer.innerHTML = '';
         }
