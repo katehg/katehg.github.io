@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Card Delivery Redesign — Ekaterina Deliagina</title>
+<title>Safety Level — Ekaterina Deliagina</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -40,8 +40,17 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 .pcols p{font-size:16px;line-height:1.85;color:var(--mid);font-weight:400}
 .pwide p{font-size:14.5px;line-height:1.85;color:var(--mid);font-weight:300}
 
+
+
+
+
+  /* a bit down for the unactive ones, so active is scaled and translateY up */
+
+
 .isc{width:100%;border-radius:38px;overflow:hidden;aspect-ratio:9/19.5;position:relative;background:#000}
 .isc img{width:100%;height:100%;object-fit:cover;display:block}
+.isc-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a}
+.isc-ph span{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#444}
 .isl{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:80px;height:25px;background:#000;border-radius:18px;z-index:10}
 .pimg{border-radius:12px;overflow:hidden;box-shadow:var(--sh2);margin-bottom:20px}
 .foot{padding:48px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(26,22,40,.06);margin-top:40px}
@@ -50,11 +59,15 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
 .foot a:hover{color:var(--blue)}
 @keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .fi{animation:fi .5s ease forwards}
-@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.rise{animation:rise .6s ease forwards}
+@media(max-width:640px){.pwrap{padding:0 20px}.pnav{padding:0 20px}.pcols{grid-template-columns:1fr;gap:14px}
 
-@media(max-width:640px){.pwrap{padding:0 20px}.pnav{padding:0 20px}.pcols{grid-template-columns:1fr;gap:14px}}
 
+
+}
+@keyframes bounce-x {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-50%) translateX(5px); }
+}
 .sc-arrow {
     position: absolute;
     right: -24px;
@@ -95,8 +108,12 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
     scroll-behavior: smooth;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    padding: 40px max(32px, calc(50% - 165px));
-    scroll-padding: 0 max(32px, calc(50% - 165px));
+    padding: 40px 0 40px max(32px, calc(50% - 165px));
+    scroll-padding-left: max(32px, calc(50% - 165px));
+}
+.irow::after {
+    content: '';
+    flex: 0 0 max(32px, calc(50% - 165px));
 }
 .ifr {
     width: 330px;
@@ -145,31 +162,24 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
     .ifr { width: 220px; }
 }
 
-.carousel-viewport {
-    background: #f5f5f7;
-    position: relative;
-    border-radius: 24px;
-    margin: 0;
-    overflow: hidden;
-    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-}
+.sc-arrow.hidden { opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+
 .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
     position: absolute;
     bottom: 12px;
     left: 0;
     right: 0;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    z-index: 10;
     margin: 0;
+    z-index: 10;
 }
 .carousel-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--blue-dim);
+    background: rgba(26,22,40,0.1);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -178,10 +188,11 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
     transform: scale(1.4);
 }
 @media (prefers-color-scheme: dark) {
-    .carousel-dot { background: rgba(13, 110, 253, 0.3); }
+    .carousel-dot { background: rgba(255,255,255,0.2); }
     .carousel-dot.active { background: var(--blue); }
 }
 </style>
+
 </head>
 <body style="overflow-x:hidden;">
 <nav class="pnav">
@@ -190,64 +201,75 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:4
     <a class="pnav-name" href="index.html">Ekaterina Deliagina</a>
   </div>
 </nav>
-
 <div class="pwrap">
+
   <div class="phero rise">
-    <div class="ptag">T-Bank · 2021</div>
-    <h1 class="pttl">Card Delivery Redesign</h1>
-    <div class="pcov"><img src="project-4-cover.png" alt="Card Delivery Redesign"></div>
+    <div class="ptag">Doto · 2025</div>
+    <h1 class="pttl">Safety Level</h1>
+    <div class="pcov"><img src="project-1-cover.png" alt="Safety Level cover"/></div>
   </div>
 
   <div class="psec fi">
-    <div class="plab">Context</div>
+    <div class="plab">The Challenge</div>
     <div class="pcols">
-      <p>Card delivery is the very first offline touchpoint for our customers. When T-Bank was initially launched, the process was quite straightforward: a customer applied for a card, and a delivery representative brought it to their preferred location.</p>
-      <p>However, as the bank grew, we realized our existing delivery flow wasn't scaling well. Customers were often confused about their delivery status, and our representatives were spending too much time on manual coordination.</p>
+      <p>Most of our users are new to trading and usually start with small initial deposits. However, not all assets are suitable for small deposits, and with one or two wrong decisions users can easily lose their entire balance within minutes.</p>
+      <p>To help prevent this, we introduced a concept that reflects the overall health of a user's account — the Safety Level.</p>
     </div>
   </div>
 
   <div class="psec fi">
-    <div class="plab">Project Goal</div>
+    <div class="plab">Process</div>
     <div class="pcols">
-      <p>The main objective was to completely redesign the card delivery experience to make it more transparent and efficient for both customers and representatives. We wanted to provide real-time updates and reduce the cognitive load at every stage of the process.</p>
+      <p>We worked closely with the analytics team to understand how much users typically deposit and how much they spend on their first trades. With the help of the engineering team, we created several Safety Levels — each one indicating how much free balance a user has left and how much they can safely allocate to a new trade.</p>
+      <p>To communicate this clearly, we designed a Safety Level widget that appears in different areas of the platform. Depending on the context, the widget adapts both its content and design to give users the most relevant information at that particular stage of their trading journey.</p>
+    </div>
+    <div class="pcols" style="margin-top:20px">
+      <p>During the design process, I researched other platforms in the industry to see how they explain similar risks to users. Surprisingly, very few products focus on protecting users' funds or clearly explain that even a single trade can lead to a significant loss.</p>
+      <p>Another important challenge was finding the right balance between warning users and not discouraging them from trading. When users open a trade, it was important to also highlight the potential reward of higher-risk trades — so we designed an additional widget specifically for the trade-opening flow.</p>
+    </div>
+    <div class="pcols" style="margin-top:20px">
+      <p>From a UX writing perspective, it was essential to maintain consistent terminology across all widgets so users could easily understand how the entire Safety Level system works as a whole.</p>
+      <p></p>
     </div>
   </div>
 
   <div class="psec fi">
-    <div class="plab">Process & Designs</div>
+    <div class="plab">Outcome</div>
     
-    <div class="carousel-wrapper" style="position:relative; margin-bottom: 32px;">
-        <div class="sc-arrow left hidden" id="scroll-left-btn" style="left: -24px; right: auto;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </div>
-        <div class="sc-arrow right" id="scroll-right-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </div>
-        <div class="carousel-viewport">
-            <div class="irow fi" style="margin: 0; padding-bottom: 40px;">
-                <div class="ifr"><div class="isc"><img src="../project 4 images/Назначение встречи.png"/></div></div>
-                <div class="ifr"><div class="isc"><img src="../project 4 images/Доставка карты.png"/></div></div>
-                <div class="ifr"><div class="isc"><img src="../project 4 images/Текущая геопозиция.png"/></div></div>
-                <div class="ifr"><div class="isc"><img src="../project 4 images/Текущая геопозиция-1.png"/></div></div>
-            </div>
-        </div>
-    </div>
 
-    <div class="pcols" style="margin-top:40px">
-      <p>I started by working closely with the logistics team to map out every possible delivery scenario. One significant insight was that most tension occurred right before the representative arrived. We introduced a live tracking feature, allowing users to see the representative's approximate location once they were and on their way.</p>
-      <p>We also simplified the verification process that occurs upon delivery. By integrating document scanning directly into the representative's app, we reduced the average delivery time by 15%.</p>
+
+<div class="carousel-wrapper" style="position:relative; max-width: 548px; margin: 16px auto 32px;">
+    <div class="sc-arrow hidden" id="scroll-left-btn" style="left: -24px; right: auto;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </div>
+    <div class="sc-arrow" id="scroll-right-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+    <div class="carousel-viewport" style="width: 100%; position: relative; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);">
+        <div class="irow fi" style="margin-top: 0; margin-bottom: 0;">
+    <div class="ifr"><div class="isc"><img src="project 1 images/Untitled.png"/></div></div>
+    <div class="ifr"><div class="isc"><img src="project 1 images/Untitled1.png"/></div></div>
+    <div class="ifr"><div class="isc"><img src="project 1 images/Untitled3.png"/></div></div>
+    <div class="ifr"><div class="isc"><img src="project 1 images/Untitled4.png"/></div></div>
+    <div class="ifr"><div class="isc"><img src="project 1 images/Untitled5.png"/></div></div>
+  </div>
+    </div>
+</div>
+
+  <div class="pcols">
+      <p>The final metrics are still being prepared by the analytics team. However, we are already seeing positive qualitative feedback from users in app store reviews, where they mention the intuitive interface and helpful guidance when making trades.</p>
+      <p>The main metric we focused on was user retention after the first trade — encouraging users to return and open a second, third, and subsequent trades. Early indicators show that the Safety Level system positively influences this behavior: users are less likely to leave immediately and tend to stay engaged with the app longer.</p>
     </div>
   </div>
 
   <div class="foot">
     <span class="foot-n">Ekaterina Deliagina</span>
     <div style="display:flex;gap:16px">
-      <a href="mailto:e.delyagins@gmail.com">Email</a>
+      <a href="mailto:e.delyagina@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/edeliagina/" target="_blank">LinkedIn ↗</a>
     </div>
   </div>
 </div>
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
@@ -256,16 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const rightBtn = wrapper.querySelector('#scroll-right-btn');
         const leftBtn = wrapper.querySelector('#scroll-left-btn');
-        
-        const centerItem = (item) => {
-            const rowRect = row.getBoundingClientRect();
-            const paddingLeft = Math.max(32, (rowRect.width / 2) - 165);
-            let snapPoint = rowRect.left + paddingLeft;
-            
-            const itemRect = item.getBoundingClientRect();
-            row.scrollBy({ left: itemRect.left - snapPoint, behavior: 'smooth' });
-        };
-
         if (rightBtn) {
             rightBtn.addEventListener('click', () => {
                 const rowRect = row.getBoundingClientRect();
@@ -308,15 +320,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
-        let dotsContainer = wrapper.querySelector('.carousel-dots');
+        const viewport = wrapper.querySelector('.carousel-viewport');
+        let dotsContainer = viewport.querySelector('.carousel-dots');
         if (!dotsContainer) {
             dotsContainer = document.createElement('div');
-            dotsContainer.className = 'carousel-dots';
-            wrapper.querySelector('.carousel-viewport').appendChild(dotsContainer);
+            dotsContainer.className = 'carousel-dots fi';
+            viewport.appendChild(dotsContainer);
         } else {
             dotsContainer.innerHTML = '';
         }
 
+
+        
         items.forEach((_, i) => {
             const dot = document.createElement('div');
             dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
@@ -329,6 +344,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
+        
+        const centerItem = (item) => {
+            const rowRect = row.getBoundingClientRect();
+            const paddingLeft = Math.max(32, (rowRect.width / 2) - 165);
+            let snapPoint = rowRect.left + paddingLeft;
+            
+            const itemRect = item.getBoundingClientRect();
+            row.scrollBy({ left: itemRect.left - snapPoint, behavior: 'smooth' });
+        };
         
         const updateActive = () => {
             const rowRect = row.getBoundingClientRect();
@@ -385,5 +409,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-</body>
-</html>
