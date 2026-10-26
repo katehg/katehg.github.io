@@ -1,276 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Ekaterina Deliagina — Content Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#f8f7fc;--bg2:#f0eef6;--surface:#fff;--surface2:#f4f2fa;--surface3:#eae7f3;
-  --ink:#1a1628;--mid:#5a5470;--soft:#8a84a0;--dim:#c8c3d8;
-  --blue:#0d6efd;--blue-dark:#0b5ed7;--blue-dim:rgba(13,110,253,.06);
-  --grad:linear-gradient(135deg,#3d8bfd,#0d6efd,#0950c0);
-  --sh:0 1px 3px rgba(26,22,40,.04),0 6px 24px rgba(26,22,40,.06);
-  --sh2:0 2px 8px rgba(26,22,40,.06),0 16px 40px rgba(26,22,40,.08);
-  --r:20px;--r2:28px;
-  --body:'Sora',system-ui,sans-serif;
-  --display:'Space Grotesk','Sora',system-ui,sans-serif;
-}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:400;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-
-/* ─── NAV ─── */
-.tnav{position:sticky;top:0;z-index:100;padding:16px 48px}
-.tnav-inner{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:1080px;margin:0 auto;background:rgba(255,255,255,.8);border:1px solid rgba(26,22,40,.06);border-radius:100px;padding:8px 10px 8px 28px;backdrop-filter:blur(24px);box-shadow:0 2px 12px rgba(26,22,40,.04)}
-.tnav-name{font-family:var(--display);font-size:14px;font-weight:700;text-decoration:none;color:var(--ink);letter-spacing:-.02em}
-.tnav-right{display:flex;align-items:center;gap:4px}
-.tnav-right a{font-size:13px;font-weight:500;color:var(--soft);text-decoration:none;padding:8px 16px;border-radius:100px;transition:all .2s}
-.tnav-right a:hover{color:var(--ink);background:rgba(26,22,40,.04)}
-.tnav-right a.tnav-cta{background:var(--blue);color:#fff;font-weight:600}
-.tnav-right a.tnav-cta:hover{background:var(--blue-dark);box-shadow:0 4px 16px rgba(13,110,253,.2)}
-
-/* ─── WRAP ─── */
-.wrap{max-width:1080px;margin:0 auto;padding:0 48px}
-
-/* ─── HERO ─── */
-.hero{padding:100px 0 80px;text-align:center;position:relative}
-.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(13,110,253,.08) 0%,rgba(13,110,253,.04) 50%,transparent 70%);pointer-events:none}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:28px;background:var(--blue-dim);border:1px solid rgba(13,110,253,.12);border-radius:100px;padding:7px 20px;color:var(--blue)}
-.hero-tag .tdot{width:6px;height:6px;border-radius:50%;background:var(--blue)}
-.hero-name{font-family:var(--display);font-size:clamp(40px,6.5vw,72px);font-weight:700;letter-spacing:-.04em;line-height:1;margin-bottom:28px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:0}
-.hero-name .h-hi{display:flex;align-items:center;gap:16px;color:var(--mid);-webkit-text-fill-color:var(--mid)}
-.hero-name .h-comma{color:var(--mid);-webkit-text-fill-color:var(--mid);margin-left:-4px}
-.hero-name .h-me{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sticker{width:clamp(80px,12vw,110px);height:auto;vertical-align:middle;margin-top:-8px}
-.hero-sub{font-size:18px;font-weight:400;color:var(--mid);max-width:700px;margin:12px auto 44px;line-height:1.7}
-.hero-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.hpill{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;background:var(--surface);border:1px solid rgba(26,22,40,.08);border-radius:100px;font-size:13px;font-weight:500;color:var(--mid);transition:all .25s;box-shadow:0 1px 4px rgba(26,22,40,.03)}
-.hpill:hover{border-color:rgba(13,110,253,.25);color:var(--blue);background:var(--blue-dim)}
-.hpill .pdot{width:6px;height:6px;border-radius:50%;background:var(--blue)}
-
-/* ─── SECTIONS ─── */
-.sec{padding:64px 0}
-.sec-head{text-align:center;margin-bottom:48px}
-.sec-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
-.sec-title{font-family:var(--display);font-size:clamp(26px,3.5vw,36px);font-weight:700;letter-spacing:-.03em;line-height:1.15;color:var(--ink)}
-
-/* ─── ABOUT ─── */
-.about-card{background:var(--surface);border:1px solid rgba(26,22,40,.06);border-radius:var(--r2);padding:48px;position:relative;overflow:hidden;box-shadow:var(--sh)}
-.about-card::before{content:'';position:absolute;top:-50px;right:-50px;width:250px;height:250px;background:radial-gradient(circle,rgba(13,110,253,.06),transparent 70%);pointer-events:none}
-.about-card::after{content:'';position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(13,110,253,.04),transparent 70%);pointer-events:none}
-.about-body{font-size:16px;font-weight:400;line-height:1.9;color:var(--mid);position:relative;z-index:1}
-.mk{background:var(--blue-dim);border:1px solid rgba(13,110,253,.14);border-radius:6px;padding:2px 8px;color:var(--blue-dark);font-weight:500}
-.mk2{background:var(--blue-dim);border:1px solid rgba(13,110,253,.14);border-radius:6px;padding:2px 8px;color:var(--blue);font-weight:500}
-.mk3{background:var(--blue-dim);border:1px solid rgba(13,110,253,.14);border-radius:6px;padding:2px 8px;color:var(--blue-dark);font-weight:500}
-
-/* ─── PROJECTS ─── */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.card{background:var(--surface);border:1px solid rgba(26,22,40,.06);border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit;display:block;transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .35s,box-shadow .35s;box-shadow:var(--sh)}
-.card:hover{transform:translateY(-4px);border-color:rgba(13,110,253,.18);box-shadow:var(--sh2)}
-.card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:filter .4s}
-.card-img.fit{object-fit:contain;padding:24px}
-.card-ph{width:100%;aspect-ratio:16/9;background:var(--bg2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.card-ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(13,110,253,.08),rgba(13,110,253,.04),transparent 70%)}
-.card-ph span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);position:relative;z-index:1;font-weight:600}
-.card-body{padding:22px 24px 24px}
-.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.card-tag{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
-.card-yr{font-size:11px;color:var(--dim);font-weight:600}
-.card-ttl{font-family:var(--display);font-size:17px;font-weight:700;letter-spacing:-.02em;line-height:1.3;margin-bottom:6px;color:var(--ink)}
-.card-desc{font-size:13px;color:var(--soft);line-height:1.55;font-weight:400}
-.card-arr{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--surface2);border:1px solid rgba(13,110,253,.08);margin-top:14px;margin-left:auto;transition:all .3s;font-size:13px;color:var(--blue)}
-.card:hover .card-arr{background:var(--blue);color:#fff;border-color:var(--blue);transform:translate(2px,-2px)}
-
-/* ─── EXPERIENCE ─── */
-.jobs{display:flex;flex-direction:column;gap:12px}
-.jcard{background:var(--surface);border:1px solid rgba(26,22,40,.06);border-radius:var(--r);padding:28px 32px;box-shadow:var(--sh);transition:border-color .25s,box-shadow .25s}
-.jcard:hover{border-color:rgba(26,22,40,.1);box-shadow:var(--sh2)}
-.jhead{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;gap:16px}
-.jco{font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
-.jper{font-size:12px;color:var(--soft);white-space:nowrap;padding-top:4px;font-weight:500}
-.jrow{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.jrole{font-size:13px;color:var(--blue);font-weight:600}
-.jloc{font-size:12px;color:var(--dim);font-weight:400}
-.jsep{font-size:10px;color:var(--dim)}
-.jdesc{font-size:13px;color:var(--soft);font-style:italic;margin-bottom:14px;font-weight:400}
-.jul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.jul li{font-size:13.5px;line-height:1.7;color:var(--mid);padding-left:18px;position:relative;font-weight:400}
-.jul li::before{content:"";position:absolute;left:3px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--dim)}
-.sub{margin-top:24px;padding-top:24px;border-top:1px solid rgba(26,22,40,.06)}
-
-/* ─── CONTACT ─── */
-.ccard{background:var(--surface);border:1px solid rgba(26,22,40,.06);border-radius:var(--r2);padding:56px;text-align:center;position:relative;overflow:hidden;box-shadow:var(--sh)}
-.ccard::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:350px;background:radial-gradient(ellipse,rgba(13,110,253,.08),rgba(13,110,253,.04),transparent 70%);pointer-events:none}
-.chead{font-family:var(--display);font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.03em;margin-bottom:14px;position:relative;color:var(--ink)}
-.csub{font-size:15px;color:var(--mid);font-weight:400;margin-bottom:36px;max-width:400px;margin-left:auto;margin-right:auto;position:relative}
-.clinks{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
-.cbtn{display:inline-flex;align-items:center;padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s;letter-spacing:-.01em}
-.cbtn-p{background:var(--blue);color:#fff}.cbtn-p:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,110,253,.15)}
-.cbtn-s{background:var(--surface2);border:1px solid rgba(26,22,40,.08);color:var(--ink)}.cbtn-s:hover{border-color:rgba(26,22,40,.16);box-shadow:0 2px 8px rgba(26,22,40,.06)}
-
-/* ─── FOOTER ─── */
-.foot{padding:40px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(26,22,40,.06)}
-.foot-n{font-size:12px;color:var(--dim);font-weight:500}.foot-r{font-size:12px;color:var(--dim)}
-
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.rise{opacity:0;transform:translateY(24px)}.rise.vis{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) forwards}
-
-@media(max-width:720px){
-  .wrap{padding:0 20px}.tnav{padding:12px 20px}
-  .tnav-inner{padding:6px 8px 6px 20px}
-  .tnav-right a:not(.tnav-cta){display:none}
-  .grid{grid-template-columns:1fr}
-  .hero{padding:72px 0 56px}
-  .about-card{padding:32px 24px}
-  .ccard{padding:40px 24px}
-  .jcard{padding:24px 20px}
-}
-</style>
+<meta name="description" content="Senior Content Designer with 8 years of experience crafting clear, user-focused content for high-traffic digital products."/>
+<link rel="icon" href="sticker.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body style="overflow-x:hidden;">
+<body>
 
-<div class="tnav">
-  <div class="tnav-inner">
-    <a class="tnav-name" href="index.html">Ekaterina Deliagina</a>
-    <div class="tnav-right">
+<div class="frame-lines" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-icon"><img src="sticker.png" alt=""/></span>
+      Ekaterina Deliagina
+    </a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+    <nav class="nav" id="nav">
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
-      <a href="#contact" class="tnav-cta">Contact</a>
-    </div>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="wrap">
+<main>
 
-  <div class="hero rise">
-    <h1 class="hero-name">
-      <span class="h-hi">Hi <img src="sticker.png" class="hero-sticker" alt="sticker"><span class="h-comma">,</span></span>
-      <span class="h-me">I'm Ekaterina</span>
-    </h1>
-    <p class="hero-sub">I'm a Senior Content Designer with 8 years of experience crafting clear, <span style="white-space:nowrap">user-focused</span> content for high-traffic digital products</p>
-    <div class="hero-pills">
-      <span class="hpill"><span class="pdot"></span>Lisbon, Portugal</span>
-      <span class="hpill">Content Design</span>
-      <span class="hpill">UX Writing</span>
-      <span class="hpill">Localization</span>
+  <section class="hero container" data-reveal>
+    <span class="avatar"><span class="avatar-inner"><img src="sticker.png" alt="Ekaterina's sticker"/></span></span>
+    <h1>Hi, I'm Ekaterina</h1>
+    <p class="hero-sub">I'm a Senior Content Designer with 8 years of experience crafting clear, user&#8209;focused content for high-traffic digital products</p>
+    <div class="tags">
+      <span class="tag"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Lisbon, Portugal</span>
+      <span class="tag">Content Design</span>
+      <span class="tag">UX Writing</span>
+      <span class="tag">Localization</span>
     </div>
-  </div>
+  </section>
 
-  <div class="sec rise" id="projects">
-    <div class="sec-head">
-      <div class="sec-label">Selected work</div>
-      <div class="sec-title">Projects</div>
+  <section class="section container" id="projects">
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">Selected work</p>
+      <h2>Projects</h2>
     </div>
     <div class="grid">
-      <a href="project-1/" class="card rise">
-        <img src="project-1-cover.png" class="card-img" alt="Safety Level cover">
-        <div class="card-body">
-          <div class="card-top"><span class="card-tag">Doto</span><span class="card-yr">2026</span></div>
-          <div class="card-ttl">Safety Level</div>
-          <div class="card-desc">Helping beginner traders understand risk and stay engaged after their first trade.</div>
-          <div class="card-arr">↗</div>
+      <a class="card" href="project-1/" data-reveal>
+        <div class="card-media"><img src="project-1-cover.png" alt="Safety Level cover" width="1800" height="1080"/></div>
+        <div class="card-info">
+          <div class="card-row"><span class="card-title">Safety Level</span><span class="card-meta">Doto · 2026</span></div>
+          <p class="card-desc">Helping beginner traders understand risk and stay engaged after their first trade.</p>
         </div>
       </a>
-      <a class="card" href="project-2/">
-        <img class="card-img" src="project-2-cover.png" alt="Onboarding Widget">
-        <div class="card-body">
-          <div class="card-top"><span class="card-tag">Doto</span><span class="card-yr">2026</span></div>
-          <div class="card-ttl">Onboarding Widget</div>
-          <div class="card-desc">Designing a step-by-step activation flow to reduce drop-off after registration.</div>
-          <div class="card-arr">↗</div>
+      <a class="card" href="project-2/" data-reveal>
+        <div class="card-media"><img src="project-2-cover.png" alt="Onboarding Widget" width="1800" height="1080"/></div>
+        <div class="card-info">
+          <div class="card-row"><span class="card-title">Onboarding Widget</span><span class="card-meta">Doto · 2025</span></div>
+          <p class="card-desc">Designing a step-by-step activation flow to reduce drop-off after registration.</p>
         </div>
       </a>
-      <a class="card" href="project-3/">
-        <img class="card-img" src="project-3-cover.png" alt="Debit Account Redesign">
-        <div class="card-body">
-          <div class="card-top"><span class="card-tag">T-Bank</span><span class="card-yr">2022</span></div>
-          <div class="card-ttl">Debit Account Redesign</div>
-          <div class="card-desc">Redesigning a core banking screen to scale features and cut support load.</div>
-          <div class="card-arr">↗</div>
+      <a class="card" href="project-3/" data-reveal>
+        <div class="card-media"><img src="project-3-cover.png" alt="Debit Account Redesign" width="1024" height="614" loading="lazy"/></div>
+        <div class="card-info">
+          <div class="card-row"><span class="card-title">Debit Account Redesign</span><span class="card-meta">T-Bank · 2022</span></div>
+          <p class="card-desc">Redesigning a core banking screen to scale features and cut support load.</p>
         </div>
       </a>
-      <a class="card" href="project-4/">
-        <img class="card-img" src="project-4-cover.png" alt="Card Delivery Redesign">
-        <div class="card-body">
-          <div class="card-top"><span class="card-tag">T-Bank</span><span class="card-yr">2021</span></div>
-          <div class="card-ttl">Card Delivery Redesign</div>
-          <div class="card-desc">Simplifying card delivery so users get started faster.</div>
-          <div class="card-arr">↗</div>
+      <a class="card" href="project-4/" data-reveal>
+        <div class="card-media"><img src="project-4-cover.png" alt="Card Delivery Redesign" width="1024" height="614" loading="lazy"/></div>
+        <div class="card-info">
+          <div class="card-row"><span class="card-title">Card Delivery Redesign</span><span class="card-meta">T-Bank · 2021</span></div>
+          <p class="card-desc">Simplifying card delivery so users get started faster.</p>
         </div>
       </a>
     </div>
-  </div>
+  </section>
 
-  <div class="sec rise" id="experience">
-    <div class="sec-head">
-      <div class="sec-label">Career</div>
-      <div class="sec-title">Experience</div>
+  <section class="section container" id="experience">
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">Career</p>
+      <h2>Experience</h2>
     </div>
     <div class="jobs">
-      <div class="jcard">
-        <div class="jhead"><div class="jco">Doto</div><div class="jper">Dec 2023 — Present</div></div>
-        <div class="jrow"><span class="jrole">Senior Content Designer</span><span class="jsep">·</span><span class="jloc">Lisbon, Portugal</span></div>
-        <div class="jdesc">Trading platform for beginners in emerging markets</div>
-        <ul class="jul">
-          <li>Built a content design process from scratch in 2 months through close collaboration with 6 PMs and designers.</li>
-          <li>Increased registrations by 10 percentage points by optimizing copy in the registration flow.</li>
-          <li>Reduced support requests and boosted brand trust by overhauling product communications and creating a comprehensive product communication map.</li>
-          <li>Managed localization in 8 languages coordinating closely with developers and the localization team.</li>
-        </ul>
-      </div>
-      <div class="jcard">
-        <div class="jhead"><div class="jco">T-Bank</div><div class="jper">Jun 2020 — Nov 2023</div></div>
-        <div class="jrow"><span class="jloc">Moscow, Russia</span></div>
-        <div class="jdesc">Leading fully digital bank with an ecosystem of financial and lifestyle services</div>
-        <div class="sub">
-          <div class="jrow"><span class="jrole">Lead Content Designer</span><span class="jsep">·</span><span class="jloc">Nov 2021 — Nov 2023</span></div>
-          <ul class="jul">
-            <li>Built and led a 20-member content design team from scratch in 1.5 years — embedding designers across 20 product teams of a 22M MAU app.</li>
-            <li>Achieved nearly 90% team satisfaction by developing upskilling tools — guidelines, a skills matrix, and a knowledge base.</li>
-            <li>Established a clear voice and tone framework used across product and marketing to ensure brand consistency.</li>
-            <li>Launched a full localization process in 3 months, enabling the release of the app's English version.</li>
-          </ul>
+
+      <article class="job" data-reveal>
+        <div class="job-side">
+          <h3 class="job-co">Doto</h3>
+          <p class="job-meta">Dec 2023 — Present</p>
+          <p class="job-meta">Lisbon, Portugal</p>
         </div>
-        <div class="sub">
-          <div class="jrow"><span class="jrole">Senior Content Designer</span><span class="jsep">·</span><span class="jloc">Jun 2020 — Nov 2021</span></div>
-          <ul class="jul">
-            <li>Doubled user engagement with key app features by contributing to the redesign of core screens.</li>
-            <li>As the first content designer on the team, built foundational processes and partnerships with UX designers, PMs, and business analysts.</li>
-          </ul>
+        <div class="job-main">
+          <p class="job-desc">Trading platform for beginners in emerging markets</p>
+          <div class="role">
+            <div class="role-head"><p class="role-title">Senior Content Designer</p></div>
+            <ul class="job-list">
+              <li>Built a content design process from scratch in 2 months through close collaboration with 6 PMs and designers.</li>
+              <li>Increased registrations by 10 percentage points by optimizing copy in the registration flow.</li>
+              <li>Reduced support requests and boosted brand trust by overhauling product communications and creating a comprehensive product communication map.</li>
+              <li>Managed localization in 8 languages coordinating closely with developers and the localization team.</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="jcard">
-        <div class="jhead"><div class="jco">Yandex Geo</div><div class="jper">Sep 2018 — Jun 2020</div></div>
-        <div class="jrow"><span class="jrole">Content Designer</span><span class="jsep">·</span><span class="jloc">Moscow, Russia</span></div>
-        <div class="jdesc">Leading mapping and navigation service with ~80M MAU</div>
-        <ul class="jul">
-          <li>Created content across Yandex Geo products — microcopy, push notifications, SMS, emails, help texts, and PR materials.</li>
-          <li>Supported the merger of transport and maps apps for a 50M-user audience with onboarding content, notifications, and FAQs.</li>
-          <li>Strengthened the editorial team by hiring and onboarding a new editor.</li>
-        </ul>
+      </article>
+
+      <article class="job" data-reveal>
+        <div class="job-side">
+          <h3 class="job-co">T-Bank</h3>
+          <p class="job-meta">Jun 2020 — Nov 2023</p>
+          <p class="job-meta">Moscow, Russia</p>
+        </div>
+        <div class="job-main">
+          <p class="job-desc">Leading fully digital bank with an ecosystem of financial and lifestyle services</p>
+          <div class="role">
+            <div class="role-head"><p class="role-title">Lead Content Designer</p><span class="job-meta">Nov 2021 — Nov 2023</span></div>
+            <ul class="job-list">
+              <li>Built and led a 20-member content design team from scratch in 1.5 years — embedding designers across 20 product teams of a 22M MAU app.</li>
+              <li>Achieved nearly 90% team satisfaction by developing upskilling tools — guidelines, a skills matrix, and a knowledge base.</li>
+              <li>Established a clear voice and tone framework used across product and marketing to ensure brand consistency.</li>
+              <li>Launched a full localization process in 3 months, enabling the release of the app's English version.</li>
+            </ul>
+          </div>
+          <div class="role">
+            <div class="role-head"><p class="role-title">Senior Content Designer</p><span class="job-meta">Jun 2020 — Nov 2021</span></div>
+            <ul class="job-list">
+              <li>Doubled user engagement with key app features by contributing to the redesign of core screens.</li>
+              <li>As the first content designer on the team, built foundational processes and partnerships with UX designers, PMs, and business analysts.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="job" data-reveal>
+        <div class="job-side">
+          <h3 class="job-co">Yandex Geo</h3>
+          <p class="job-meta">Sep 2018 — Jun 2020</p>
+          <p class="job-meta">Moscow, Russia</p>
+        </div>
+        <div class="job-main">
+          <p class="job-desc">Leading mapping and navigation service with ~80M MAU</p>
+          <div class="role">
+            <div class="role-head"><p class="role-title">Content Designer</p></div>
+            <ul class="job-list">
+              <li>Created content across Yandex Geo products — microcopy, push notifications, SMS, emails, help texts, and PR materials.</li>
+              <li>Supported the merger of transport and maps apps for a 50M-user audience with onboarding content, notifications, and FAQs.</li>
+              <li>Strengthened the editorial team by hiring and onboarding a new editor.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section contact container" id="contact" data-reveal>
+    <h2>Let's work together</h2>
+    <div class="contact-grid">
+      <p>Open to new opportunities in content design and UX writing. Based in Lisbon, open to remote.</p>
+      <div class="email-pill">
+        <a href="mailto:e.delyagina@gmail.com">Send an email</a>
+        <button class="copy" data-copy="e.delyagina@gmail.com" aria-label="Copy email address" title="Copy email address">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+        </button>
+        <span class="copied" role="status">Email copied</span>
       </div>
     </div>
-  </div>
-
-  <div class="sec rise" id="contact">
-    <div class="ccard">
-      <div class="chead">Let's work together</div>
-      <div class="csub">Open to new opportunities in content design and UX writing. Based in Lisbon, open to remote.</div>
-      <div class="clinks">
-        <a class="cbtn cbtn-p" href="mailto:e.delyagina@gmail.com">Send an email</a>
-        <a class="cbtn cbtn-s" href="https://www.linkedin.com/in/edeliagina/" target="_blank">LinkedIn ↗</a>
-      </div>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/edeliagina/" target="_blank" rel="noopener">LinkedIn <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
     </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>Ekaterina Deliagina · 2026</span>
+    <span>Lisbon, Portugal</span>
   </div>
+</footer>
 
-  <div class="foot"><span class="foot-n">Ekaterina Deliagina · 2026</span><span class="foot-r">Lisbon, Portugal</span></div>
-</div>
-
-<script>
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');obs.unobserve(x.target)}})},{threshold:.12});
-document.querySelectorAll('.rise').forEach(el=>obs.observe(el));
-</script>
+<script src="main.js"></script>
 </body>
 </html>
